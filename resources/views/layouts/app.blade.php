@@ -24,8 +24,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                    {{-- <img src="{{asset('home/1.JPG')}}" style="width: 100px; height: 100px" > --}}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                     <img src="{{asset('homee/small.png')}}" style="width: 100px; height: 50px" >
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,13 +41,22 @@
                             <a class="nav-link" href="{{route('tshirt.index')}}" style="color:black; font-weight: bold; margin-left: 10px;">T-Shirt</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link" href="" style="color:black; font-weight: bold; margin-left: 10px;">Shoes</a>
+                            <a class="nav-link" href="{{route('shoes.index')}}" style="color:black; font-weight: bold; margin-left: 10px;">Shoes</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="{{route('cart')}}" style="color:black; font-weight: bold; margin-left: 10px;">Cart items</a>
                         </li>
 
                     </ul>
 
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <form method="POST" action="{{route('Search')}}" class="form-inline my-2 my-lg-0" style="display: flex;">
+                            @csrf
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search by price" aria-label="Search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
+                          </form>
 
                         <!-- Authentication Links -->
                         @guest
@@ -69,7 +78,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    @if (Auth::user()->rule_id==1)
+                                    @if (Auth::user()->role_id==1)
                                     <a class="dropdown-item" href="{{route('Admin.index')}}">
                                      Admin page
                                  </a>

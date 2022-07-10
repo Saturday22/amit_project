@@ -50,6 +50,7 @@ class AdminController extends Controller
         'product_name' =>$request->product_name,
         'product_price' =>$request->product_price,
         'product_picture'=>$file_name,
+        'category'=>$request->category,
     ]);
     return redirect()->back()->with('add_product', 'Product saved successfully!');
     }

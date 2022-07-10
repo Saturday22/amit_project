@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class pantsController extends Controller
@@ -13,9 +14,9 @@ class pantsController extends Controller
      */
     public function index()
     {
-        //
-       // return "pants";
-       return view('pants.index');
+        $pants=Product::where('category','Pants')->get();
+        //return $pants;
+       return view('pants.index',compact('pants'));
     }
 
     /**

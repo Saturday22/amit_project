@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class tshirtController extends Controller
@@ -13,9 +14,10 @@ class tshirtController extends Controller
      */
     public function index()
     {
-        //g
+        $tShirts=Product::where('category','t shirt')->get();
+       // return $tShirts;
 
-        return view('Tshirts.Tshirts');
+        return view('Tshirts.Tshirts',compact('tShirts'));
     }
 
     /**

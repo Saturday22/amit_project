@@ -11,20 +11,24 @@
     <form method="POST" action="{{route('Admin.store')}}"  enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
-          <label for="exampleInputEmail1">product name</label>
+          <label for="exampleInputEmail1">Product Name</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="product_name">
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">price</label>
+            <label for="exampleInputEmail1">Category</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="category">
+          </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Price</label>
           <input type="number" class="form-control" id="exampleInputPassword1" name="product_price">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">product picture</label>
             <input type="file" class="form-control" id="exampleInputPassword1" name="picture">
           </div>
-        <button type="submit" class="btn btn-success">Add product</button>
+        <button type="submit" class="btn btn-success">Add Product</button>
       </form>
-      <a href="{{route('Admin.index')}}"  class="btn btn-primary">back to all products</a>
+      <a href="{{route('Admin.index')}}"  class="btn btn-primary">Back to all Products</a>
 </div>
 
 @endsection

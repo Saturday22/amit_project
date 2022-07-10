@@ -3,7 +3,7 @@
 {{-- {{$products}} --}}
 <div class="container">
     <a href="{{route('Admin.create')}}" class="btn btn-success">create product</a>
-    <h1>Admin all products: </h1>
+    <h1>Admin all Products </h1>
 
     <table class="table">
         <thead>
@@ -11,6 +11,7 @@
             <th scope="col">Product name</th>
             <th scope="col">Product price</th>
             <th scope="col">Product picture</th>
+            <th scope="col">category</th>
             <th scope="col">Control</th>
           </tr>
         </thead>
@@ -20,6 +21,7 @@
                 <td>{{$product->product_name}}</td>
                 <td>{{$product->product_price}}</td>
                 <td> <img src="{{asset('upload_pic/'.$product->product_picture)}} " style="height: 500px;width:500px"> </td>
+                <td>{{$product->category}}</td>
                 <td>
                     <form method="POST" action="{{ route('Admin.destroy',$product->id)}}">
                         {{ csrf_field() }}
