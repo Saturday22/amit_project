@@ -12,12 +12,13 @@
             <img src="{{ asset('homee/Logo.JPG') }} ">
         </div>
         {{-- @auth --}}
-            <h2 style="margin-top: 10px">Pants:</h2>
+        <h2 style="margin-top: 10px">Pants</h2>
+        @if ($pants->count() > 0)
             <div class="row">
                 @foreach ($pants as $item)
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}" alt="Card image cap"
-                            style="height:300px;">
+                        <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}"
+                            alt="Card image cap" style="height:300px;">
                         <div class="card-body">
                             <h5 class="card-title">Description:{{ $item->product_name }} </h5>
                             <p class="card-text">Price:{{ $item->product_price }}</p>
@@ -26,13 +27,17 @@
                     </div>
                 @endforeach
             </div>
+        @else
+            <h2>No Pants Found</h2>
+        @endif
 
-            <h2 style="margin-top: 30px">T-Shirt:</h2>
+        <h2 style="margin-top: 30px">T-Shirts</h2>
+        @if ($tShirts->count() > 0)
             <div class="row">
                 @foreach ($tShirts as $item)
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}" alt="Card image cap"
-                            style="height:300px;">
+                        <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}"
+                            alt="Card image cap" style="height:300px;">
                         <div class="card-body">
                             <h5 class="card-title">Description:{{ $item->product_name }} </h5>
                             <p class="card-text">Price:{{ $item->product_price }}</p>
@@ -41,13 +46,16 @@
                     </div>
                 @endforeach
             </div>
+        @else
+            <h2>No T-Shirts Found</h2>
+        @endif
 
-
-            <h2 style="margin-top: 30px">Shoes:</h2>
+        <h2 style="margin-top: 30px">Shoes:</h2>
+        @if ($shoes->count() > 0)
             @foreach ($shoes as $item)
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}" alt="Card image cap"
-                        style="height:300px;">
+                    <img class="card-img-top" src="{{ asset('upload_pic/' . $item->product_picture) }}"
+                        alt="Card image cap" style="height:300px;">
                     <div class="card-body">
                         <h5 class="card-title">Description:{{ $item->product_name }} </h5>
                         <p class="card-text">Price:{{ $item->product_price }}</p>
@@ -55,7 +63,10 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+    </div>
+    @else
+        <h2>No Shoes Found</h2>
+    @endif
     {{-- @else
         <div>
             <a href="{{ route('login') }}" class="btn btn-success" style="margin-top: 20px"> Please Login To Show Products </a>
